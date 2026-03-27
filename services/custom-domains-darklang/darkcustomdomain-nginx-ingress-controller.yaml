@@ -80,10 +80,10 @@ spec:
               hostPort: 443
           resources:
             requests:
-              memory: "200Mi"
-              cpu: "100m"
+              memory: "300Mi"
+              cpu: "20m"
             limits:
-              memory: "500Mi"
+              memory: "600Mi"
           env:
             - name: POD_NAME
               valueFrom:
