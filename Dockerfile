@@ -207,7 +207,8 @@ RUN sudo npm install -g prettier@2.7.1
 # Postgres
 ############################
 USER postgres
-RUN pg_createcluster 16 main -- --nosync && \
+RUN pg_dropcluster 16 main --stop 2>/dev/null || true && \
+    pg_createcluster 16 main -- --nosync && \
     /etc/init.d/postgresql start && \
     psql --command "CREATE USER dark WITH SUPERUSER PASSWORD 'darklang';" && \
     createdb -O dark devdb && \
